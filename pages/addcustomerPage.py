@@ -8,6 +8,9 @@ from selenium.webdriver.support import expected_conditions as EC
 class Addcustomer:
     def __init__(self, driver):
         self.driver = driver
+        self.first_name_locator = (By.XPATH, "//input[@ng-model='fName']")
+        self.last_name_locator = (By.XPATH, "//input[@ng-model='lName']")
+        self.post_code_locator = (By.XPATH, "//input[@ng-model='postCd']")
 
     def bankmanager_login_text(self):
         wait = WebDriverWait(self.driver, 10)
@@ -39,8 +42,7 @@ class Addcustomer:
         return title.text
 
     def first_name_placeholder(self):
-        title = self.driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div[2]/div/div/form/div[1]/input")
-        return title.text
+        return self.driver.find_element(*self.first_name_locator).get_attribute("placeholder")
 
     def first_name(self):
         wait = WebDriverWait(self.driver, 10)
@@ -53,6 +55,9 @@ class Addcustomer:
         title = self.driver.find_element(By.XPATH, '/html/body/div/div/div[2]/div/div[2]/div/div/form/div[2]/label')
         return title.text
 
+    def last_name_placeholder(self):
+        return self.driver.find_element(*self.last_name_locator).get_attribute("placeholder")
+
     def last_name(self):
         return self.driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div[2]/div/div/form/div[2]/input")
 
@@ -62,6 +67,9 @@ class Addcustomer:
     def post_code_text(self):
         title = self.driver.find_element(By.XPATH, '/html/body/div/div/div[2]/div/div[2]/div/div/form/div[3]/label')
         return title.text
+
+    def post_code_placeholder(self):
+        return self.driver.find_element(*self.post_code_locator).get_attribute("placeholder")
 
     def post_code(self):
         return self.driver.find_element(By.XPATH, "/html/body/div/div/div[2]/div/div[2]/div/div/form/div[3]/input")
