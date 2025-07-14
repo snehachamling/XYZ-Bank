@@ -1,7 +1,5 @@
-import time
 
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.expected_conditions import title_is
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
