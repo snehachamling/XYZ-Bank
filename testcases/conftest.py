@@ -1,4 +1,4 @@
-# conftest.py
+
 # import pytest
 # from selenium import webdriver
 #
@@ -10,7 +10,7 @@
 #     driver.quit()
 
 #Headless Chrome WebDriver setup for pytest
-#
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
